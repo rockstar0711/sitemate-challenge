@@ -1,0 +1,2 @@
+export const STORE_SEARCH_RES = "STORE_SEARCH_RES";
+export const IS_FETCHING = "IS_FETCHING";

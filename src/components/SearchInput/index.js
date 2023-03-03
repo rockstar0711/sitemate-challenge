@@ -4,22 +4,29 @@ import { APP_API_KEY } from "../../config";
 import { TextInput } from "react-native-gesture-handler";
 import { Button } from "react-native-elements";
 import callApi from "../../helpers/callApi";
+import StoreSearchResult from "../../context/actions/StoreSearchResult";
+import { useSearchResult } from "../../context/ResultProvider";
+import IsFetchingData from "../../context/actions/IsFetchingData";
 
 const SearchInput = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const { searchResDispatch } = useSearchResult();
 
   const fetchNews = async () => {
     console.log(searchQuery);
+    IsFetchingData(true)(searchResDispatch);
     await callApi
       .get(
-        `?q=${searchQuery}&from=2023-03-03&sortBy=popularity&apiKey=${APP_API_KEY}`
+        `?q=${searchQuery}&from=2023-02-03&sortBy=popularity&apiKey=${APP_API_KEY}`
       )
       .then((res) => {
-        console.log(res);
+        console.log(res.data.articles);
+        StoreSearchResult(res.data.articles)(searchResDispatch);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data);
       });
+    IsFetchingData(false)(searchResDispatch);
   };
 
   return (
