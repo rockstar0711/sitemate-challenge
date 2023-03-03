@@ -30,26 +30,36 @@ const SearchInput = () => {
   };
 
   return (
-    <View>
+    <View style={{ paddingTop: 20 }}>
       <TextInput
-        style={{ backgroundColor: "#aeaeae" }}
+        style={{ backgroundColor: "#f3f3f3", padding: 20, borderRadius: 10 }}
         onChangeText={(v) => setSearchQuery(v)}
         value={searchQuery}
       />
-      <Button
-        title={"Search"}
-        titleStyle={{ fontSize: 14 }}
-        buttonStyle={{
-          backgroundColor: "#434343",
-          borderRadius: 22,
-          height: 44,
-          width: 100,
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          marginVertical: 15,
         }}
-        style={{ marginTop: 0 }}
-        onPress={() => {
-          fetchNews();
-        }}
-      />
+      >
+        <Button
+          title={"Search"}
+          titleStyle={{ fontSize: 14 }}
+          buttonStyle={{
+            backgroundColor: "#434343",
+            borderRadius: 22,
+            height: 44,
+            width: 100,
+          }}
+          style={{ marginTop: 0 }}
+          onPress={() => {
+            fetchNews();
+          }}
+        />
+      </View>
     </View>
   );
 };

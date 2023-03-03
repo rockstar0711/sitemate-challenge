@@ -56,7 +56,6 @@ const SearchScreen = () => {
         </View>
       ) : (
         <>
-          <SearchInput />
           {/* Search results go here */}
 
           {searchResState.searchRes.length > 0 ? (
@@ -80,6 +79,7 @@ const SearchScreen = () => {
           ) : (
             <Text>No result</Text>
           )}
+          <SearchInput />
         </>
       )}
     </View>
@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     paddingHorizontal: 12,
+    paddingTop: 50,
   },
   loadingContainer: {
     flex: 1,
