@@ -1,4 +1,4 @@
 import { API_URL, API_KEY } from "@env";
 
-export const API_URL = API_URL;
-export const API_KEY = API_KEY;
+export const APP_API_URL = API_URL;
+export const APP_API_KEY = API_KEY;
